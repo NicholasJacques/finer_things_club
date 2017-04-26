@@ -1,6 +1,9 @@
 class Category < ActiveRecord::Base
   before_validation :generate_slug
 
+  validates :title, uniqueness: true,
+                   presence: true
+
   validates :slug, uniqueness: true,
                    presence: true
 
