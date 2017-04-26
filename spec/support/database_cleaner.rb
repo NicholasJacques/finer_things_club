@@ -1,18 +1,18 @@
 RSpec.configure do |config|
   config.before(:suite) do
-    Begin
+    begin
       DatabaseCleaner.start
       FactoryGirl.lint
-     ensure
+    ensure
       DatabaseCleaner.clean_with(:truncation)
-     end
+    end
   end
- 
+
   config.before(:each) do
     DatabaseCleaner.strategy = :transaction
   end
  
-  config.before(:each, :js =&gt; true) do
+  config.before(:each, :js => true) do
     DatabaseCleaner.strategy = :truncation
   end
  
