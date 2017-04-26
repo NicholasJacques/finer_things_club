@@ -2,6 +2,9 @@
 
 <ul>
   <% @items.each do |item|%>
-    <li><%= @item.title %></li>
+    <ul>
+      <li><%= item.title %></li>
+      <li><%= item.price %></li>
+    </ul>
   <% end %>
 </ul>
