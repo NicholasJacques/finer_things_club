@@ -16,4 +16,15 @@ class Cart
     data[item.id.to_s] ||= 0
     data[item.id.to_s] += 1
   end
+
+  def remove_item(item_id)
+    data.delete(item_id)
+  end
+
+  def total
+    return 0 if items.empty?
+    items.inject(0) do |sum, cart_item|
+      sum + (cart_item.quantity * cart_item.price)
+    end
+  end
 end

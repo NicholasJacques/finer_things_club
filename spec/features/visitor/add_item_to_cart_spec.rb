@@ -25,5 +25,12 @@ RSpec.describe 'add item to cart', type: :feature do
       expect(page).to have_content(item.description)
     end
     # expect(page).to have_css(item.image_path)
+    within('.subtotal') do
+      expect(page).to have_content(item.price * 2)
+    end
+
+    within('.cart-total') do
+      expect(page).to have_content(item.price * 2)
+    end
   end
 end

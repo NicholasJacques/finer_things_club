@@ -9,6 +9,11 @@
   </head>
 
   <body>
+    <% flash.each do |type, message| %>
+      <% message = [message] if message.class == String %>
+      <%= content_tag :div, message.join('<br/>').html_safe, class: "flash-#{type}"%>
+    <%end%>
+
     <%= yield %>
   </body>
 </html>
