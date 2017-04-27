@@ -1,8 +1,5 @@
 require 'csv'
 
-DatabaseCleaner.strategy = :truncation
-DatabaseCleaner.clean
-
 Category.create(title: "Land")
 Category.create(title: "Sea")
 Category.create(title: "Air")
@@ -10,10 +7,10 @@ Category.create(title: "Air")
 items ||= (CSV.open'db/csv/items.csv', headers: true, header_converters: :symbol)
 
 items.each do |item|
-  Item.build(title: item[:title],
+  Item.create!(title: item[:title],
              price: item[:price],
              category: Category.find_by(title: item[:category]),
              description: item[:description])
 
-  puts "created #{item[:title]}" if Item.save
+  puts "created #{item[:title]}"
 end
