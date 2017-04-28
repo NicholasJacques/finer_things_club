@@ -23,4 +23,6 @@ class CartItemsController < ApplicationController
     flash[:success] = "Removed #{item.title} from cart"
     redirect_to request.referrer
   end
+
+  
 end
