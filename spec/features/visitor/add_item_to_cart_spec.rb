@@ -17,12 +17,10 @@ RSpec.describe 'add item to cart', type: :feature do
       expect(page).to have_content(item.title)
     end
 
-    within('.quantity') do
-      expect(page).to have_content("2")
-    end
+    expect(find_field('cart_item[quantity]').value).to eq("2")
 
     within('.description') do
-      expect(page).to have_content(item.description)
+      expect(page).to have_content(item.description[0..75])
     end
     # expect(page).to have_css(item.image_path)
     within('.subtotal') do
