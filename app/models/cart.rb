@@ -21,6 +21,10 @@ class Cart
     data.delete(item_id)
   end
 
+  def update_quantity(cart_params)
+    data[cart_params[:cart_item_id]] = cart_params[:quantity].to_i
+  end
+
   def total
     return 0 if items.empty?
     items.inject(0) do |sum, cart_item|

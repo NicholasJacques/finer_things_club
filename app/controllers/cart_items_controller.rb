@@ -11,6 +11,11 @@ class CartItemsController < ApplicationController
     @cart_items = cart.items
   end
 
+  def update
+    cart.update_quantity(params[:cart_item])
+    redirect_to request.referrer
+  end
+
   def destroy
     cart.remove_item(params[:id])
     item = Item.find(params[:id])
