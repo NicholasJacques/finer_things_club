@@ -8,7 +8,7 @@ RSpec.describe 'add item to cart', type: :feature do
     click_on "Add to Cart"
     expect(current_path).to eq(items_path)
     click_on "Add to Cart"
-
+    save_and_open_page
     click_link "Cart"
 
     expect(current_path).to eq('/cart')
