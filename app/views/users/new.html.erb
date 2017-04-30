@@ -1,0 +1,11 @@
+<h1>Create a new Account</h1>
+
+<%= form_for @user, :html => {class: "create-account"} do |f| %>
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+
+  <%= f.label :password %>
+  <%= f.text_field :password%>
+
+  <%= f.submit "Create Account" %>
+<% end %>

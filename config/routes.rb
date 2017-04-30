@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :cart_items, only: [:destroy, :update]
   resources :items, only: [:index]
+  resources :users, only: [:new, :create]
 
   root :to => 'home#index'
 
